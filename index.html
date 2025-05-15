@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <h1>🎂Happy Birthday Cartoon!🎂</h1>
+      <h2>To my wonderful and amazing friend</h2>
+    </header>
+
+    <section class="message">
+      <p>Hello🖐️I hope this finds you well.Wishing you a day filled with love, laughter, and all the happiness in the world. You deserve the best today and always! 🎂💖</p>
+    </section>
+
+    <footer>
+      <p>With love, mummy's boy🥰</p>
+    </footer>
+
+    <button id="specialBtn" aria-label="Show special birthday messages">Click Me!</button>
+    <section class="special-messages-container" id="specialMessagesContainer" aria-live="polite" aria-atomic="true"></section>
+  </div>
+
+  <!-- Floating elements outside container, start from below container bottom -->
+  <div class="floating-elements" aria-hidden="true">
+    <div class="drift-container">
+      <span class="balloon">🎈</span>
+      <span class="star">⭐</span>
+      <span class="rose">🌹</span>
+      <span class="balloon">🎈</span>
+      <span class="rose">🌹</span>
+      <span class="star">⭐</span>
+      <span class="balloon">🎈</span>
+      <span class="star">⭐</span>
+      <span class="rose">🌹</span>
+      <span class="balloon">🎈</span>
+      <span class="rose">🌹</span>
+      <span class="star">⭐</span>
+    </div>
+  </div>
+
+  <script>
+    const button = document.getElementById('specialBtn');
+    const container = document.getElementById('specialMessagesContainer');
+
+    const messages = [
+      "You are a shining star that brightens every room. May all your dreams come true this year and your heart be filled with joy. Happy Birthday to an extraordinary friend!",
+      "May your year be filled with endless sunshine and laughter. You deserve nothing but the best today and always!",
+      "Your kindness and warmth inspire everyone around you. Wishing you a birthday as wonderful as your heart!",
+      "Celebrate this special day with joy and love, knowing that you are cherished more than words can say.",
+      "Here’s to a year of amazing adventures, great achievements, and unforgettable memories. Happy Birthday! Na usisahau kuniekea keki bytheway😂😂"
+    ];
+
+    button.addEventListener('click', () => {
+      button.style.display = 'none';
+      let delay = 0;
+      messages.forEach((msg, index) => {
+        const messageElem = document.createElement('p');
+        messageElem.classList.add('special-message');
+        messageElem.textContent = msg;
+        messageElem.style.animationDelay = `${delay}s`;
+        container.appendChild(messageElem);
+        delay += 2; // space out animation for each message
+      });
+    });
+  </script>
+</body>
+</html>

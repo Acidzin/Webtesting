@@ -1,0 +1,213 @@
+/* Base styling */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f9c5d1, #ffe2e6);
+  font-family: 'Montserrat', sans-serif;
+  color: #3d3d3d;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Container */
+.container {
+  background: white;
+  border-radius: 15px;
+  max-width: 512px;
+  width: 100%;
+  padding: 30px 30px 80px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Header */
+header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 0;
+  color: #e91e63;
+  text-shadow: 1px 1px 5px #f48fb1;
+}
+
+header h2 {
+  font-weight: 400;
+  margin-top: 5px;
+  font-size: 1.3rem;
+  color: #ad1457;
+}
+
+/* Message */
+.message {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #d81b60;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #3d3d3d;
+}
+
+/* Button */
+button#specialBtn {
+  margin-top: 20px;
+  background: #e91e63;
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: 0 5px 15px rgb(233 30 99 / 0.5);
+  position: relative;
+  z-index: 5;
+}
+
+button#specialBtn:hover {
+  background: #ad1457;
+  box-shadow: 0 8px 25px rgb(173 20 87 / 0.7);
+}
+
+button#specialBtn:focus {
+  outline: 2px solid #ad1457;
+  outline-offset: 2px;
+}
+
+/* Special messages container */
+.special-messages-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.special-message {
+  font-weight: 600;
+  color: #d81b60;
+  font-size: 1rem;
+  margin: 8px 0;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating elements container - horizontal distribution without fixed positioning */
+.floating-elements {
+  position: relative; /* No fixed */
+  bottom: 0;
+  width: 100%; /* full width of container */
+  height: 400px;
+  pointer-events: none;
+  user-select: none;
+  overflow: visible;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between; /* left, center, right distribution */
+  align-items: flex-end; /* align items to bottom */
+  padding-left: 60px; /* exclude far left margin if needed */
+  padding-right: 30px; /* padding right for balance */
+  box-sizing: border-box;
+}
+
+/* Drift container for horizontal oscillation */
+.drift-container {
+  position: relative; /* relative positioning for each float group */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px; /* spacing between floating items in each column */
+  height: 100%; /* Set the height to 100% to allow wrapping */
+}
+
+/* Balloon style */
+.balloon {
+  width: 40px;
+  height: 60px;
+  border-radius: 60% 60% 60% 60% / 80% 80% 20% 20%;
+  opacity: 0.85;
+  box-shadow: inset -8px -5px 8px #fff7f9;
+  animation: floatUp 7s linear infinite; /* upward animation */
+}
+
+/* Star style */
+.star {
+  width: 30px;
+  height: 30px;
+  background: yellow;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  opacity: 0.85;
+  animation: floatUp 5s linear infinite; /* upward animation */
+}
+
+/* Rose style */
+.rose {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 20% 20%, #ff4d4d, #b30000);
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.85;
+  animation: floatUp 6s linear infinite; /* upward animation */
+}
+
+/* Add subtle petal details for rose */
+.rose::before, .rose::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ff6666, #800000);
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  opacity: 0.8;
+  transform-origin: center;
+}
+.rose::before {
+  transform: rotate(45deg);
+}
+.rose::after {
+  transform: rotate(-45deg);
+}
+
+/* Keyframes for upward movement */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
